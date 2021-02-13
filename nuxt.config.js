@@ -1,5 +1,24 @@
 import colors from 'vuetify/es5/util/colors'
 
+// Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+const vuetify = {
+  customVariables: ['~/assets/variables.scss'],
+  theme: {
+    dark: true,
+    themes: {
+      dark: {
+        primary: colors.blue.darken2,
+        accent: colors.grey.darken3,
+        secondary: colors.amber.darken3,
+        info: colors.teal.lighten1,
+        warning: colors.amber.base,
+        error: colors.deepOrange.accent4,
+        success: colors.green.accent3,
+      },
+    },
+  },
+}
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -51,24 +70,15 @@ export default {
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
-    },
-  },
+  vuetify,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // Storybook: https://storybook.nuxtjs.org/options
+  storybook: {
+    stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
+    addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+    decorators: ['<v-app><story/><v-app>'],
+  },
 }
