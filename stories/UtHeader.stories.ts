@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs'
 import { actions } from '@storybook/addon-actions'
-import UtHeader from './UtHeader.vue'
+import UtHeader from '@/components/organisms/UtHeader.vue'
 
 export default {
   title: 'organisms/UtHeader',

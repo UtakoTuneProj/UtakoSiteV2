@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { withKnobs, text, number, date, boolean } from '@storybook/addon-knobs'
 import { actions } from '@storybook/addon-actions'
-import UtMovieCard from './UtMovieCard.vue'
+import UtMovieCard from '@/components/molecules/UtMovieCard.vue'
 import { Movie } from '~/@types/movie'
 import { SongIndexV1 } from '~/@types/song_index'
 
