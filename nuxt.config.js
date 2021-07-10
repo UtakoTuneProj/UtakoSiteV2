@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-const vuetify = {
+export const vuetifyConfig = {
   customVariables: ['~/assets/variables.scss'],
   theme: {
     dark: false,
@@ -16,6 +16,9 @@ const vuetify = {
         success: colors.green.accent3,
       },
     },
+  },
+  icons: {
+    iconfont: 'mdi',
   },
 }
 
@@ -48,7 +51,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', vuetifyConfig],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -70,15 +73,19 @@ export default {
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify,
+  vuetify: vuetifyConfig,
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   // Storybook: https://storybook.nuxtjs.org/options
   storybook: {
-    stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
+    stories: ['@/stories/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
     decorators: ['<v-app><story/><v-app>'],
+    parameters: { vuetify: vuetifyConfig },
+    webpackFinal(config, { configDir }) {
+      return config
+    },
   },
 }

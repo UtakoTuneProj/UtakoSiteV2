@@ -7,13 +7,13 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint:fix": "yarn lint:js --fix && yarn lint:style --fix",
+    "lint:fix": "yarn run lint:js --fix && yarn run lint:style --fix",
     "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "yarn lint:js && yarn lint:style",
+    "lint": "yarn run lint:js && yarn run lint:style",
     "test": "jest",
     "storybook": "yarn nuxt storybook",
-    "sb": "yarn storybook",
+    "sb": "yarn run storybook",
     "build-storybook": "build-storybook"
   },
   "lint-staged": {

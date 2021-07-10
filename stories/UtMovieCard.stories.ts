@@ -33,6 +33,7 @@ function movie() {
   const songIndexes: SongIndexV1[] = isAnalyzed
     ? [{ version: 1, index: [1, 1, 1, 1, 1, 1, 1, 1] }]
     : []
+  const tags = ['ゆったり', 'ピアノミク']
 
   const movieInstance: Movie = {
     id,
@@ -45,6 +46,7 @@ function movie() {
     mylistCounter,
     commentCounter,
     songIndexes,
+    tags,
   }
   return movieInstance
 }
