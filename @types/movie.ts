@@ -12,4 +12,5 @@ export interface Movie {
   commentCounter: number
   mylistCounter: number
   songIndexes: SongIndex[]
+  tags: string[]
 }

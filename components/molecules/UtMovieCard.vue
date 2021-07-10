@@ -1,47 +1,23 @@
 <template>
   <v-card @click="onClick">
-    <div class="card">
-      <v-img :src="thumbnailSrc" />
-      <div class="card-body text-secondary">
-        <v-simple-table dense>
-          <tbody>
-            <tr>
-              <th><v-icon>mdi-music-circle-outline</v-icon></th>
-              <td>{{ movie.title }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-account-outline</v-icon></th>
-              <td>{{ movie.userNickname }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-clock-outline</v-icon></th>
-              <td>{{ movie.firstRetrieve.format('llll') }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-chart-timeline-variant</v-icon></th>
-              <td>{{ movie.movieScore }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-eye-outline</v-icon></th>
-              <td>{{ movie.viewCounter }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-comment-outline</v-icon></th>
-              <td>{{ movie.commentCounter }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-star-outline</v-icon></th>
-              <td>{{ movie.mylistCounter }}</td>
-            </tr>
-            <tr>
-              <th><v-icon>mdi-lightning-bolt-outline</v-icon></th>
-              <td>
-                <span v-if="isAnalyzed" class="text-success">解析済</span>
-                <span v-else class="text-secondary">未解析</span>
-              </td>
-            </tr>
-          </tbody>
-        </v-simple-table>
+    <div class="movie-card">
+      <v-img
+        contain
+        :src="thumbnailSrc"
+        height="100%"
+        width="32%"
+        class="thumb"
+      />
+      <div class="movinfo">
+        <div class="top grey--text">
+          <div class="taglist text-caption">
+            <span v-for="tag in movie.tags" :key="tag" class="tag"
+              >#{{ tag }}</span
+            >
+          </div>
+        </div>
+        <div class="title">{{ movie.title }}</div>
+        <div class="bottom body-2">{{ movie.userNickname }}</div>
       </div>
     </div>
   </v-card>
@@ -74,3 +50,35 @@ export default class UtMovieCard extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.movie-card {
+  display: flex;
+  height: 7.2rem;
+  padding: 0.6rem;
+
+  > .thumb {
+    height: 100%;
+    flex-grow: 0;
+  }
+
+  > .movinfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.6rem;
+    flex-grow: 1;
+
+    > .top {
+      > .taglist {
+        > .tag:not(:first-child) {
+          margin-left: 0.2rem;
+        }
+      }
+    }
+
+    > .title {
+      flex-grow: 1;
+    }
+  }
+}
+</style>

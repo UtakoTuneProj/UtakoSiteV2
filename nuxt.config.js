@@ -4,7 +4,7 @@ import colors from 'vuetify/es5/util/colors'
 const vuetify = {
   customVariables: ['~/assets/variables.scss'],
   theme: {
-    dark: true,
+    dark: false,
     themes: {
       dark: {
         primary: colors.blue.darken2,
@@ -33,7 +33,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/scss/default.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
