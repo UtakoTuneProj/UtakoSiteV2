@@ -1,8 +1,6 @@
 <template>
   <div class="main">
-    <div class="movielist">
-      <ut-movie-card v-for="movie in movies" :key="movie.id" :movie="movie" />
-    </div>
+    <ut-movie-card-list :movies="movies" />
   </div>
 </template>
 
@@ -11,11 +9,11 @@ import 'reflect-metadata'
 import moment from 'moment'
 import { Vue, Component } from 'vue-property-decorator'
 import { Movie } from '~/@types/movie'
-import UtMovieCard from '~/components/molecules/UtMovieCard.vue'
+import UtMovieCardList from '~/components/organisms/UtMovieCardList.vue'
 
 @Component({
   components: {
-    UtMovieCard,
+    UtMovieCardList,
   },
 })
 export default class PageSearch extends Vue {
